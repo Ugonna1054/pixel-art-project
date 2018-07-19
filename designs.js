@@ -10,7 +10,7 @@ function makeGrid () {
   width= $('#inputWidth').val();
   table= $('#pixelCanvas');
 
- table.children().remove(); /* prevents creation of same additionl grid dimensions upon second and  
+ table.children().remove(); /* prevents creation of same additionl grid dimensions upon second and
                                   subsequent clicks  of the submit button*/
 
 
@@ -25,7 +25,8 @@ function makeGrid () {
   $('td').click(function () {
     let color;
     color= $('#colorPicker').val();
-    $(this).css('background-color', color );
+    if ($(this).attr('style')) {$(this).removeAttr('style')}
+    else {$(this).css('background-color',  color );}
   });
 
 }   // end of makeGrid function
